@@ -1,4 +1,329 @@
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Reenie+Beanie');
 body{
     background: black;
     text-align: center;
+    color: white;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight: 100;
+}
+main{
+    width: 90%;
+    margin: 5% auto;
+}
+nav.top{
+    width: 90%;
+    margin: 0 auto;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+}
+h2{
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 90px;
+    font-weight: 100;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    color: rgba(220,220,220,0.8);
+}
+.title{
+    margin-top: 7%;
+}
+#char{
+    position: relative;
+    margin: 150px auto;
+    width:50px;
+    height:50px;
+    background:white;
+    border-radius:50%;
+}
+#problem{
+    display:flex;
+    height: 107px;
+    width: 718px;
+    margin: 10px auto;
+}
+#problem>div{
+    display: grid;
+    margin-right:14px;
+    grid-template-areas:
+    "a b c d"
+    "e f g h"
+    "i j k l"
+    "m n o p"
+    "q r s t";
+    row-gap: 0;
+}
+#problem>div>div{
+    background: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 19px;
+    margin: 1px;
+    position: relative;
+}
+.p>#one{
+    grid-area: a;
+}
+.p>#two{
+    grid-area: e;
+}
+.p>#three{
+    grid-area: i;
+}
+.p>#four{
+    grid-area: m;
+}
+.p>#five{
+    grid-area: q;
+}
+.p>#eight{
+    grid-area: h;
+}
+.p>#nine{
+    grid-area: j;
+}
+.p>#ten{
+    grid-area: k;
+}
+
+.r>#one{
+    grid-area: a;
+}
+.r>#two{
+    grid-area: e;
+}
+.r>#three{
+    grid-area: i;
+}
+.r>#four{
+    grid-area: m;
+}
+.r>#five{
+    grid-area: q;
+}
+.r>#eight{
+    grid-area: h;
+}
+.r>#nine{
+    grid-area: j;
+}
+.r>#ten{
+    grid-area: k;
+}
+.r>#eleven{
+    grid-area: o;
+}
+.r>#twelve{
+    grid-area: t;
+}
+
+.o>#one{
+    grid-area: b;
+}
+.o>#two{
+    grid-area: e;
+}
+.o>#three{
+    grid-area: i;
+}
+.o>#four{
+    grid-area: m;
+}
+.o>#five{
+    grid-area: l;
+}
+.o>#six{
+    grid-area: p;
+}
+.o>#seven{
+    grid-area: r;
+}
+.o>#eight{
+    grid-area: h;
+}
+.o>#nine{
+    grid-area: c;
+}
+.o>#ten{
+    grid-area: s;
+}
+
+.b>#one{
+    grid-area: a;
+}
+.b>#two{
+    grid-area: e;
+}
+.b>#three{
+    grid-area: i;
+}
+.b>#four{
+    grid-area: m;
+}
+.b>#five{
+    grid-area: q;
+}
+.b>#eight{
+    grid-area: h;
+}
+.b>#nine{
+    grid-area: j;
+}
+.b>#ten{
+    grid-area: k;
+}
+.b>#eleven{
+    grid-area: p;
+}
+.b>#twelve{
+    grid-area: s;
+}
+.b>#thirteen{
+    grid-area: r;
+}
+
+#problem>.l #problem>.e{
+    grid-template-areas:
+    "a b c"
+    "e f g"
+    "i j k"
+    "m n o"
+    "q r s";
+}
+.l>#one{
+    grid-area: a;
+}
+.l>#two{
+    grid-area: e;
+}
+.l>#three{
+    grid-area: i;
+}
+.l>#four{
+    grid-area: m;
+}
+.l>#five{
+    grid-area: q;
+}
+.l>#six{
+    grid-area: r;
+}
+.l>#seven{
+    grid-area: s;
+}
+
+.e>#one{
+    grid-area: a;
+}
+.e>#two{
+    grid-area: e;
+}
+.e>#three{
+    grid-area: i;
+}
+.e>#four{
+    grid-area: m;
+}
+.e>#five{
+    grid-area: q;
+}
+.e>#eight{
+    grid-area: r;
+}
+.e>#nine{
+    grid-area: j;
+}
+.e>#ten{
+    grid-area: k;
+}
+.e>#eleven{
+    grid-area: s;
+}
+
+#problem>.m{
+    grid-template-areas:
+    "a b c d e"
+    "f g h i j"
+    "k l m n o"
+    "p q r s t"
+    "u v w x y";
+}
+
+.m>#one{
+    grid-area: a;
+}
+.m>#two{
+    grid-area: f;
+}
+.m>#three{
+    grid-area: k;
+}
+.m>#four{
+    grid-area: p;
+}
+.m>#five{
+    grid-area: u;
+}
+.m>#six{
+    grid-area: g;
+}
+.m>#seven{
+    grid-area: m;
+}
+.m>#eight{
+    grid-area: i;
+}
+.m>#nine{
+    grid-area: e;
+}
+.m>#ten{
+    grid-area: j;
+}
+.m>#eleven{
+    grid-area: o;
+}
+.m>#twelve{
+    grid-area: t;
+}
+.m>#thirteen{
+    grid-area: y;
+}
+
+#problem>.s{
+    margin-right:0;
+}
+.s>#one{
+    grid-area: b;
+}
+.s>#two{
+    grid-area: c;
+}
+.s>#three{
+    grid-area: d;
+}
+.s>#four{
+    grid-area: e;
+}
+.s>#five{
+    grid-area: j;
+}
+.s>#six{
+    grid-area: k;
+}
+.s>#seven{
+    grid-area: p;
+}
+.s>#eight{
+    grid-area: q;
+}
+.s>#nine{
+    grid-area: r;
+}
+.s>#ten{
+    grid-area: s;
 }
