@@ -19,11 +19,12 @@ for(let i = 0; i<letterDivs.length; i++){
 
 const character = document.querySelector("#char");
 
-const moveChar = function(e){
+document.addEventListener('keydown', moveChar);
+
+function moveChar (e){
     let currTop = parseInt(character.style.top.toString().replace("px", ""));
     let currLeft = parseInt(character.style.left.replace("px", ""));
-    console.log(currTop + " left" + currLeft)
-     switch(e.keyCode){
+    switch(e.keyCode){
          case 38:
          character.style.top = currTop - 80 + "px";
          break;
@@ -36,8 +37,11 @@ const moveChar = function(e){
          case 39:
          character.style.left = currLeft + 80 + "px";
          break;
-     }
- }
+    }
+}
+ 
 
- document.addEventListener('keydown', moveChar);
+ function startGame (e){
+     
+ }
 

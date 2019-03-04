@@ -44,13 +44,74 @@ a{
     margin: 200px auto;
     top: 0px;
     left: 0px;
-    width:50px;
-    height:50px;
+    width: 50px;
+    height: 50px;
     background:white;
     border-radius:50%;
     transition: top 0.2s, left 0.2s;
     transition-timing-function: ease-in-out;
 }
+
+#leftarr{
+    position: relative;
+    top: -265px;
+    left: -30px;
+    animation-name: leftarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes leftarr{
+    50%{
+        left: -50px;
+    }
+}
+
+#rightarr{
+    position: relative;
+    top: -255px;
+    left: 34px;
+    animation-name: rightarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes rightarr{
+    50%{
+        left: 54px;
+    }
+}
+
+#uparr{
+    position: relative;
+    top: -328px;
+    left: 24px;
+    animation-name: uparr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes uparr{
+    50%{
+        top: -348px;
+    }
+}
+
+#downarr{
+    position: relative;
+    top: -158px;
+    left: -17px;
+    animation-name: downarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes downarr{
+    50%{
+        top: -138px;
+    }
+}
+
 #problem{
     display:flex;
     height: 107px;
