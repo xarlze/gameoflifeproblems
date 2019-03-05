@@ -427,6 +427,7 @@ a{
 .s>#ten{
     grid-area: s;
 }
+
 h1{
     position: absolute;
     left: 50%;
@@ -440,6 +441,7 @@ h1{
     animation-duration: 2s;
     opacity: 0;
 }
+
 @keyframes dis{
     25%{
         opacity: 1;
@@ -452,4 +454,13 @@ h1{
 #obstacles>div{
     background: white;
     border-radius: 50%;
+    position: relative;
+}
+
+#obstacles>div>h2{
+    font-size: 50px;
+    color: black;
+    position: relative;
+    top: 50%;
+    margin-top: -30px;
 }

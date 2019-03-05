@@ -19,12 +19,20 @@ for(let i = 0; i<letterDivs.length; i++){
 
 const character = document.querySelector("#char");
 
+document.addEventListener('keydown', function(e){
+    switch(e.keyCode){
+        case 38:
+        case 40:
+        case 37:
+        case 39:
+        startGame();
+   }},{once : true});
+
 document.addEventListener('keydown', moveChar);
 
 function moveChar (e){
     let currTop = parseInt(character.style.top.toString().replace("px", ""));
     let currLeft = parseInt(character.style.left.replace("px", ""));
-    console.log(character.getBoundingClientRect())
     switch(e.keyCode){
          case 38:
          if(character.getBoundingClientRect().y>160){
@@ -38,7 +46,7 @@ function moveChar (e){
          }
          break;
          case 40:
-         if(character.getBoundingClientRect().y<700){
+         if(character.getBoundingClientRect().y<(innerHeight-200)){
             character.style.top = currTop + 70 + "px";
          } else {
             let warning = document.createElement("h1");
@@ -60,7 +68,7 @@ function moveChar (e){
          }
          break;
          case 39:
-         if(character.getBoundingClientRect().x<1300){
+         if(character.getBoundingClientRect().x<(innerWidth-200)){
             character.style.left = currLeft + 70 + "px";
          } else {
             let warning = document.createElement("h1");
@@ -84,21 +92,15 @@ function startGame(){
      let topNav = document.querySelector("header");
      topNav.style.top="65px";
      let arrows = document.querySelector("#arrs");
-     arrows.style.opacity = "0";   
+     arrows.style.opacity = "0"; 
  }
-
-document.addEventListener('keydown', function(e){
-    switch(e.keyCode){
-        case 38:
-        case 40:
-        case 37:
-        case 39:
-        startGame();
-   }},{once : true});
 
 const createObstacle = function(text, size, time){
     let ob = document.createElement("div");
-    ob.innerText = text;
+    let obText = document.createElement("h2");
+    obText.innerText = text;
+    obText.style.fontSize = Math.floor(size/3) +"px";
+    obText.style.marginTop = -(Math.floor(size/6)) +"px";
     ob.style.position = "fixed";
     ob.style.width = size+"px";
     ob.style.height = size+"px";
@@ -117,45 +119,50 @@ const createObstacle = function(text, size, time){
     ob.style.top = startY+"px";
     ob.style.left = startX+"px";
     ob.style.transition=`top ${time}s ease-in-out, left ${time}s ease-in-out`;
+    ob.appendChild(obText);
     document.querySelector("#obstacles").appendChild(ob);
     ob.style.left = innerWidth-startX;
     ob.style.top = innerHeight-startY;
     return [ob, startX, startY, time];
 }
 
-const moveObstacle= function(ob, x, y, time){
-    ob.style.left = innerWidth-x +"px";
-    ob.style.top = innerHeight-y +"px";
-    setTimeout(function(){
-        ob.remove();},time*1000);
-}
-
-const createObstacleTest = function(text, size, time){
-    let ob = document.createElement("div");
-    ob.innerText = text;
-    ob.style.position = "fixed";
-    ob.style.width = size+"px";
-    ob.style.height = size+"px";
-    let startX = Math.random()*innerWidth;
-    let startY = Math.random()*innerHeight;
-    ob.style.top = startY+"px";
-    ob.style.left = startX+"px";
-    ob.style.transition=`top ${time}s ease-in-out, left ${time}s ease-in-out`;
-    document.querySelector("#obstacles").appendChild(ob);
-    return [ob, startX, startY, time];
-}
-
-const troubles = [
-    {
-        text: "hi",
-        size: 50,
-        time: 5
+const detectCollision = function(obs, size){
+    let dy = (character.getBoundingClientRect().y+47) - (obs.getBoundingClientRect().y + size/2);
+    let dx = (character.getBoundingClientRect().x+47) - (obs.getBoundingClientRect().x + size/2);
+    let distance = Math.sqrt(dx * dx + dy * dy);
+    let disRef = ((size/2) + 47);
+    if (distance < disRef){
+        alert('collide');
     }
-]
-
-for(let i = 0; i<troubles.length; i++){
-    let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
-    document.addEventListener("load",moveObstacle(arr[0], arr[1], arr[2], arr[3]));
-}  
+}
 
 
+function level (troubles){
+    for(let i = 0; i<troubles.length; i++){
+            let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
+            let obstacleInMove = arr[0];
+            let obstacleStartX = arr[1];
+            let obstacleStartY = arr[2];
+            window.addEventListener("load", function(){
+                obstacleInMove.style.left = innerWidth-obstacleStartX +"px";
+                obstacleInMove.style.top = innerHeight-obstacleStartY +"px";
+                setTimeout(function(){
+                    obstacleInMove.remove();},troubles[i].time*1000);
+            });
+
+            console.log(character.getBoundingClientRect());
+            setInterval(function(){
+                detectCollision(arr[0], troubles[i].size);
+            },100);
+    }
+}
+
+const levelOneObs = [
+    {
+        text: "MOM",
+        size: 500,
+        time: 4
+    }
+];
+
+level(levelOneObs);
