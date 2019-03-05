@@ -19,17 +19,6 @@ for(let i = 0; i<letterDivs.length; i++){
 
 const character = document.querySelector("#char");
 
-document.addEventListener('keydown', function(e){
-    switch(e.keyCode){
-        case 38:
-        case 40:
-        case 37:
-        case 39:
-        startGame();
-   }},{once : true});
-
-document.addEventListener('keydown', moveChar);
-
 function moveChar (e){
     let currTop = parseInt(character.style.top.toString().replace("px", ""));
     let currLeft = parseInt(character.style.left.replace("px", ""));
@@ -92,15 +81,15 @@ function startGame(){
      let topNav = document.querySelector("header");
      topNav.style.top="65px";
      let arrows = document.querySelector("#arrs");
-     arrows.style.opacity = "0"; 
+     arrows.style.opacity = "0";
  }
 
 const createObstacle = function(text, size, time){
     let ob = document.createElement("div");
     let obText = document.createElement("h2");
-    obText.innerText = text;
-    obText.style.fontSize = Math.floor(size/3) +"px";
-    obText.style.marginTop = -(Math.floor(size/6)) +"px";
+    // obText.innerText = text;
+    ob.style.background = circusTheme[Math.floor(Math.random()*circusTheme.length)];
+    obText.style.fontSize = Math.floor(size/6) +"px";
     ob.style.position = "fixed";
     ob.style.width = size+"px";
     ob.style.height = size+"px";
@@ -120,49 +109,141 @@ const createObstacle = function(text, size, time){
     ob.style.left = startX+"px";
     ob.style.transition=`top ${time}s ease-in-out, left ${time}s ease-in-out`;
     ob.appendChild(obText);
-    document.querySelector("#obstacles").appendChild(ob);
+    if(document.querySelector("#obstacles")){
+        document.querySelector("#obstacles").appendChild(ob);
+    }
     ob.style.left = innerWidth-startX;
     ob.style.top = innerHeight-startY;
     return [ob, startX, startY, time];
 }
 
-const detectCollision = function(obs, size){
+const gameOver = function(){
+    let allObs = document.querySelector("#obstacles");
+    allObs.remove();
+    let over = document.createElement("h4");
+    over.innerText = "GAME OVER, YOU DIED.";
+    document.querySelector("#levelnotice").appendChild(over);
+}
+
+const detectCollision = function(obs, size, interval){
     let dy = (character.getBoundingClientRect().y+47) - (obs.getBoundingClientRect().y + size/2);
     let dx = (character.getBoundingClientRect().x+47) - (obs.getBoundingClientRect().x + size/2);
     let distance = Math.sqrt(dx * dx + dy * dy);
     let disRef = ((size/2) + 47);
     if (distance < disRef){
-        alert('collide');
+        gameOver();
+        clearInterval(interval);
     }
 }
 
 
 function level (troubles){
     for(let i = 0; i<troubles.length; i++){
-            let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
-            let obstacleInMove = arr[0];
-            let obstacleStartX = arr[1];
-            let obstacleStartY = arr[2];
-            window.addEventListener("load", function(){
-                obstacleInMove.style.left = innerWidth-obstacleStartX +"px";
-                obstacleInMove.style.top = innerHeight-obstacleStartY +"px";
-                setTimeout(function(){
-                    obstacleInMove.remove();},troubles[i].time*1000);
-            });
-
-            console.log(character.getBoundingClientRect());
-            setInterval(function(){
-                detectCollision(arr[0], troubles[i].size);
+        let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
+        let obstacleInMove = arr[0];
+        let obstacleStartX = arr[1];
+        let obstacleStartY = arr[2];
+        let interval;
+        setTimeout(() => {
+            obstacleInMove.style.left = innerWidth-obstacleStartX +"px";
+            obstacleInMove.style.top = innerHeight-obstacleStartY +"px";
+            interval = setInterval(function(){
+                detectCollision(arr[0], troubles[i].size, interval);
             },100);
+        }, (i*1000));
+        setTimeout(function(){
+            obstacleInMove.remove();
+        },(troubles[i].time*1000+i*1000));
+        
+        setTimeout(function(){
+            clearInterval(interval);
+        },(troubles[i].time*1000+i*1000));
     }
+}
+
+const levelNotice = function(level){
+    let notice = document.createElement("h3");
+    notice.innerText = `Level ${level}`;
+    document.querySelector("#levelnotice").appendChild(notice);
 }
 
 const levelOneObs = [
     {
+        text: "MOM FORGOT YOUR MILK",
+        size: 300,
+        time: 10
+    },
+    {
+        text: "DAD ",
+        size: 100,
+        time: 9
+    },
+    {
         text: "MOM",
         size: 500,
-        time: 4
+        time: 5
+    },
+    {
+        text: "MOM",
+        size: 70,
+        time: 8
+    },
+    {
+        text: "MOM",
+        size: 120,
+        time: 12
+    },
+    {
+        text: "MOM",
+        size: 600,
+        time: 5
+    },
+    {
+        text: "MOM",
+        size: 100,
+        time: 2
+    },
+    {
+        text: "MOM",
+        size: 25,
+        time: 3
+    },
+    {
+        text: "MOM",
+        size: 50,
+        time: 8
+    },
+    {
+        text: "MOM",
+        size: 1000,
+        time: 20
+    },
+    {
+        text: "MOM",
+        size: 200,
+        time: 6
+    },
+    {
+        text: "MOM",
+        size: 500,
+        time: 7
+    },
+    {
+        text: "MOM",
+        size: 600,
+        time: 2
     }
 ];
 
-level(levelOneObs);
+document.addEventListener('keydown', function(e){
+    switch(e.keyCode){
+        case 38:
+        case 40:
+        case 37:
+        case 39:
+        startGame();
+        levelNotice(1);
+        level(levelOneObs);
+   }},{once : true});
+
+document.addEventListener('keydown', moveChar);

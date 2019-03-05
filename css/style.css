@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Reenie+Beanie');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Shade');
 body{
     background: black;
     text-align: center;
@@ -68,6 +69,7 @@ a{
     border-radius: 50%;
     transition: top 0.2s, left 0.2s;
     transition-timing-function: ease-in-out;
+    box-shadow: -20px 20px 20px -10px rgba(255, 255, 255, 0.1);
 }
 
 #arrs{
@@ -431,15 +433,16 @@ a{
 h1{
     position: absolute;
     left: 50%;
-    margin-left: -240px;
+    margin-left: -250px;
     top: 50%;
     margin-top: -50px;
     color: white;
-    font-size: 55px;
+    font-size: 30px;
     font-weight: 100;
     animation-name: dis;
     animation-duration: 2s;
     opacity: 0;
+    font-family: 'Bungee Hairline', cursive;
 }
 
 @keyframes dis{
@@ -458,9 +461,52 @@ h1{
 }
 
 #obstacles>div>h2{
-    font-size: 50px;
+    font-family: 'Bungee', cursive;
     color: black;
     position: relative;
-    top: 50%;
-    margin-top: -30px;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 auto;
+    padding: 1000px 0;
+}
+#levelnotice{
+    margin: 0 auto;
+}
+h3{
+    position: relative;
+    bottom: -80px;
+    font-size: 40px;
+    font-weight: 100;
+    font-family: 'Bungee Hairline', cursive;
+    transition: 1s ease-out;
+    opacity: 0;
+    animation-name: level;
+    animation-duration: 2s;
+}
+
+@keyframes level{
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;
+    }
+}
+
+h4{
+    position: relative;
+    bottom: 50px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Bungee Hairline', cursive;
+    transition: 1s ease-out;
+    opacity: 1;
+    animation-name: gameover;
+    animation-duration: 2s;
+}
+
+@keyframes gameover{
+    0%{
+        opacity: -0
+    }
 }
