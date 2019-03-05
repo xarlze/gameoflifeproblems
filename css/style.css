@@ -448,3 +448,8 @@ h1{
         opacity: 1;
     }
 }
+
+#obstacles>div{
+    background: white;
+    border-radius: 50%;
+}

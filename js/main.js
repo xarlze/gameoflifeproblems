@@ -84,10 +84,10 @@ function startGame(){
      let topNav = document.querySelector("header");
      topNav.style.top="65px";
      let arrows = document.querySelector("#arrs");
-     arrows.style.opacity = "0";
+     arrows.style.opacity = "0";   
  }
 
- document.addEventListener('keydown', function(e){
+document.addEventListener('keydown', function(e){
     switch(e.keyCode){
         case 38:
         case 40:
@@ -96,6 +96,66 @@ function startGame(){
         startGame();
    }},{once : true});
 
-const createObstacles = function(){
-
+const createObstacle = function(text, size, time){
+    let ob = document.createElement("div");
+    ob.innerText = text;
+    ob.style.position = "fixed";
+    ob.style.width = size+"px";
+    ob.style.height = size+"px";
+    let startX = Math.floor((Math.random()*innerWidth*2)-(innerWidth*0.5));
+    let startY;
+    let pN = ((Math.round(Math.random())*2)-1);
+    if(startX>-size && startX<(innerWidth+size)){
+        if(pN>0){
+            startY = innerHeight+(size*2);
+        } else{
+            startY = -(size*2);
+        }
+    } else {
+        startY = Math.floor((Math.random()*innerHeight*2)-(innerHeight*0.5));
+    }
+    ob.style.top = startY+"px";
+    ob.style.left = startX+"px";
+    ob.style.transition=`top ${time}s ease-in-out, left ${time}s ease-in-out`;
+    document.querySelector("#obstacles").appendChild(ob);
+    ob.style.left = innerWidth-startX;
+    ob.style.top = innerHeight-startY;
+    return [ob, startX, startY, time];
 }
+
+const moveObstacle= function(ob, x, y, time){
+    ob.style.left = innerWidth-x +"px";
+    ob.style.top = innerHeight-y +"px";
+    setTimeout(function(){
+        ob.remove();},time*1000);
+}
+
+const createObstacleTest = function(text, size, time){
+    let ob = document.createElement("div");
+    ob.innerText = text;
+    ob.style.position = "fixed";
+    ob.style.width = size+"px";
+    ob.style.height = size+"px";
+    let startX = Math.random()*innerWidth;
+    let startY = Math.random()*innerHeight;
+    ob.style.top = startY+"px";
+    ob.style.left = startX+"px";
+    ob.style.transition=`top ${time}s ease-in-out, left ${time}s ease-in-out`;
+    document.querySelector("#obstacles").appendChild(ob);
+    return [ob, startX, startY, time];
+}
+
+const troubles = [
+    {
+        text: "hi",
+        size: 50,
+        time: 5
+    }
+]
+
+for(let i = 0; i<troubles.length; i++){
+    let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
+    document.addEventListener("load",moveObstacle(arr[0], arr[1], arr[2], arr[3]));
+}  
+
+
