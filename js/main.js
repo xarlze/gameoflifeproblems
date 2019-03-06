@@ -26,17 +26,20 @@ function moveChar (e){
          case 38:
          if(character.getBoundingClientRect().y>160){
             character.style.top = currTop - 70 + "px";
+            character.className = "lookup";
          } else {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
+            
          }
          break;
          case 40:
          if(character.getBoundingClientRect().y<(innerHeight-250)){
             character.style.top = currTop + 70 + "px";
+            character.className = "lookdown";
          } else {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
@@ -48,23 +51,27 @@ function moveChar (e){
          case 37:
          if(character.getBoundingClientRect().x>160){
             character.style.left = currLeft - 70 + "px";
+            character.className = "lookleft";
          } else {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
+            character.className.replace(/none|lookdown|lookright|lookleft/gi, "lookup");
          }
          break;
          case 39:
          if(character.getBoundingClientRect().x<(innerWidth-200)){
             character.style.left = currLeft + 70 + "px";
+            character.className = "lookright";
          } else {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
+            character.className.replace(/none|lookdown|lookright|lookleft/gi, "lookup");
          }
          break;
     }
@@ -122,11 +129,20 @@ const gameOver = function(){
     if(allObs){
         allObs.remove();
     }
-    let over = document.createElement("h4");
-    
-    over.innerText = "GAME OVER, YOU DIED.";
     if(!document.querySelector("h4")){
-        document.querySelector("#levelnotice").appendChild(over);
+        let over = document.createElement("h4");
+        over.innerText = "GAME OVER, YOU DIED.";
+        if(!document.querySelector("#gameover>h4")){
+            document.querySelector("#gameover").appendChild(over);
+            setTimeout(function(){
+                over.remove();
+                let reset = document.createElement("a");
+                reset.innerText = "Restart";
+                reset.setAttribute
+                document.querySelector("#reset").appendChild(reset);
+            },4000);
+        }
+        document.querySelector("#levelnotice").remove();
     }
 }
 
@@ -140,7 +156,6 @@ const detectCollision = function(obs, size, interval){
         clearInterval(interval);
     }
 }
-
 
 function level (troubles){
     for(let i = 0; i<troubles.length; i++){
@@ -159,7 +174,6 @@ function level (troubles){
         setTimeout(function(){
             obstacleInMove.remove();
         },(troubles[i].time*1000+i*1000));
-        
         setTimeout(function(){
             clearInterval(interval);
         },(troubles[i].time*1000+i*1000));
@@ -169,7 +183,9 @@ function level (troubles){
 const levelNotice = function(level){
     let notice = document.createElement("h3");
     notice.innerText = `Level ${level}`;
-    document.querySelector("#levelnotice").appendChild(notice);
+    if(document.querySelector("#levelnotice")){
+        document.querySelector("#levelnotice").appendChild(notice);
+    }
     setTimeout(() => {
         notice.remove();
     }, 2000);
@@ -261,8 +277,8 @@ document.addEventListener('keydown', function(e){
                 console.log(allLev[i]);
                 levelNotice((i+1));
                 level(allLev[i]);
-            }, ((i*0.8)*25000));
+            }, ((i*0.8)*24500+700));
         };
-   }},{once : true});
+}},{once : true});
 
 document.addEventListener('keydown', moveChar);
