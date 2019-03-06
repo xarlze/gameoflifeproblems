@@ -35,7 +35,7 @@ function moveChar (e){
          }
          break;
          case 40:
-         if(character.getBoundingClientRect().y<(innerHeight-200)){
+         if(character.getBoundingClientRect().y<(innerHeight-250)){
             character.style.top = currTop + 70 + "px";
          } else {
             let warning = document.createElement("h1");
@@ -119,10 +119,15 @@ const createObstacle = function(text, size, time){
 
 const gameOver = function(){
     let allObs = document.querySelector("#obstacles");
-    allObs.remove();
+    if(allObs){
+        allObs.remove();
+    }
     let over = document.createElement("h4");
+    
     over.innerText = "GAME OVER, YOU DIED.";
-    document.querySelector("#levelnotice").appendChild(over);
+    if(!document.querySelector("h4")){
+        document.querySelector("#levelnotice").appendChild(over);
+    }
 }
 
 const detectCollision = function(obs, size, interval){
@@ -165,73 +170,76 @@ const levelNotice = function(level){
     let notice = document.createElement("h3");
     notice.innerText = `Level ${level}`;
     document.querySelector("#levelnotice").appendChild(notice);
+    setTimeout(() => {
+        notice.remove();
+    }, 2000);
 }
 
-const levelOneObs = [
+const beginObs = [
     {
         text: "MOM FORGOT YOUR MILK",
         size: 300,
-        time: 10
+        time: 25
     },
     {
         text: "DAD ",
         size: 100,
-        time: 9
-    },
-    {
-        text: "MOM",
-        size: 500,
-        time: 5
-    },
-    {
-        text: "MOM",
-        size: 70,
-        time: 8
-    },
-    {
-        text: "MOM",
-        size: 120,
-        time: 12
-    },
-    {
-        text: "MOM",
-        size: 600,
-        time: 5
-    },
-    {
-        text: "MOM",
-        size: 100,
-        time: 2
-    },
-    {
-        text: "MOM",
-        size: 25,
-        time: 3
-    },
-    {
-        text: "MOM",
-        size: 50,
-        time: 8
-    },
-    {
-        text: "MOM",
-        size: 1000,
         time: 20
     },
     {
         text: "MOM",
-        size: 200,
-        time: 6
+        size: 500,
+        time: 20
     },
     {
         text: "MOM",
-        size: 500,
-        time: 7
+        size: 70,
+        time: 24
+    },
+    {
+        text: "MOM",
+        size: 120,
+        time: 30
     },
     {
         text: "MOM",
         size: 600,
-        time: 2
+        time: 16
+    },
+    {
+        text: "MOM",
+        size: 100,
+        time: 10
+    },
+    {
+        text: "MOM",
+        size: 25,
+        time: 12
+    },
+    {
+        text: "MOM",
+        size: 50,
+        time: 15
+    },
+    {
+        text: "MOM",
+        size: 1000,
+        time: 25
+    },
+    {
+        text: "MOM",
+        size: 200,
+        time: 16
+    },
+    {
+        text: "MOM",
+        size: 500,
+        time: 15
+    },
+    {
+        text: "MOM",
+        size: 600,
+        time: 8
     }
 ];
 
@@ -242,8 +250,19 @@ document.addEventListener('keydown', function(e){
         case 37:
         case 39:
         startGame();
-        levelNotice(1);
-        level(levelOneObs);
+        let levelUpObs = beginObs;
+        let allLev = [];
+        for(let i = 0; i<10; i++){
+            setTimeout(function(){
+                for(let c=0;c<levelUpObs.length;c++){
+                    levelUpObs[c].time = Math.round(levelUpObs[c].time*0.8);
+                }
+                allLev.push(levelUpObs);
+                console.log(allLev[i]);
+                levelNotice((i+1));
+                level(allLev[i]);
+            }, ((i*0.8)*25000));
+        };
    }},{once : true});
 
 document.addEventListener('keydown', moveChar);
