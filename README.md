@@ -22,19 +22,19 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 (instructions.html)
 
 ![](https://imgur.com/TPzadsl.png)
-### Tutorial Demonstration
+### Tutorial Display - Demonstration
 (instructions.html)
 
 ![](https://imgur.com/CZXrcoU.png)
-### Game Display Level 1
+### Game Display - Level 1
 (index.html)
 
 ![](https://imgur.com/EzAoPPm.png)
-### Game Display During Game
+### Game Display - During Game
 (index.html)
 
 ![](https://imgur.com/88l06On.png)
-### Game Display Game Over
+### Game Display - Game Over
 (index.html)
 
 ![](https://imgur.com/0GIt9mz.png)
