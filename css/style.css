@@ -28,6 +28,7 @@ nav.top{
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
+    z-index: 10;
     
 }
 footer{
@@ -44,6 +45,7 @@ nav.bot{
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
+    z-index: 10;
 }
 h2{
     font-size: 90px;
@@ -553,6 +555,7 @@ h6{
     background: white;
     border-radius: 50%;
     position: relative;
+    z-index: -1;
 }
 
 #obstacles>div>h2{

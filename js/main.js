@@ -113,7 +113,6 @@ function startGame(){
 const createObstacle = function(text, size, time){
     let ob = document.createElement("div");
     let obText = document.createElement("h2");
-    // obText.innerText = text;
     ob.style.background = circusTheme[Math.floor(Math.random()*circusTheme.length)];
     obText.style.fontSize = Math.floor(size/6) +"px";
     ob.style.position = "fixed";
@@ -310,7 +309,7 @@ document.addEventListener('keydown', function(e){
                         setTimeout(function(){
                             reset.innerText = "PLAY AGAIN";
                             document.querySelector("#reset").appendChild(reset);
-                        },3000)}
+                        },4000)}
                     },((i*0.6)*33000+900)) 
                 }
             }
