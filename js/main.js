@@ -4,7 +4,7 @@ let letterDivs = document.querySelectorAll(".p>div, .r>div, .o>div, .b>div, .l>d
 
 let alive = true;
 
-let maxLevel = 1;
+let maxLevel = 10;
 
 const randColor = function(i){
     let colorInd = Math.floor(Math.random()*circusTheme.length);
