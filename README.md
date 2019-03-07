@@ -39,7 +39,7 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 ![](https://imgur.com/0GIt9mz.png)
 
 <p align="center">
-### Made with love,
-#### Charles Chen Cui :blush:
+Made with love,\n
+Charles Chen Cui :blush:
 </p>
 
