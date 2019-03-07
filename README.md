@@ -36,3 +36,5 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 
 ![](https://imgur.com/0GIt9mz.png)
 
+## Made with love: Charles Chen Cui :)
+
