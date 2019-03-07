@@ -1,4 +1,658 @@
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Reenie+Beanie');
+@import url('https://fonts.googleapis.com/css?family=Bungee|Bungee+Hairline|Bungee+Shade');
 body{
     background: black;
     text-align: center;
+    color: white;
+    font-family: 'Reenie Beanie', cursive;
+    font-weight: 100;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
+main{
+    width: 90%;
+    margin: 5% auto;
+}
+header{
+    position: relative;
+    top: -300px;
+    left: 10px;
+    transition: 1s ease-out;
+}
+nav.top{
+    width: 100%;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    
+}
+footer{
+    position: absolute;
+    bottom: 100px;
+    width:90%;
+    transition: 0.5s ease-in;
+}
+nav.bot{
+    width: 718px;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+h2{
+    font-size: 90px;
+    font-weight: 100;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 4px solid transparent;
+}
+
+a:hover{
+    border-bottom: 4px !important;
+    border-bottom-style: dotted !important;
+    border-bottom-color: white !important;
+}
+
+#title{
+    position:relative;
+    margin-top: 0%;
+    transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
+    top:0px;
+}
+
+#titleother{
+    position:relative;
+    margin-top: 7.35%;
+    transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
+    top:0px;
+}
+
+#char{
+    position: relative;
+    margin: 160px auto 0 auto;
+    top: 0px;
+    left: 0px;
+    width: 95px;
+    height: 95px;
+    background-image: url(../images/kid.png);
+    background-position-x: -57px;
+    background-position-y: -53px;
+    background-size: 220%;
+    border-radius: 50%;
+    transition: top 0.2s, left 0.2s;
+    transition-timing-function: ease-in-out;
+    box-shadow: -20px 20px 20px -10px rgba(255, 255, 255, 0.1);
+}
+
+#insch{
+    position: relative;
+    margin: 160px auto 0 auto;
+    width: 95px;
+    height: 95px;
+    background-image: url(../images/kid.png);
+    background-position-x: -57px;
+    background-position-y: -53px;
+    background-size: 220%;
+    border-radius: 50%;
+    transition: top 1.5s, left 1.4s;
+    transition-timing-function: ease-in-out;
+    box-shadow: -20px 20px 20px -10px rgba(255, 255, 255, 0.1);
+}
+
+.dead{
+    background-image: url(../images/dead.png) !important;
+}
+
+.blink{
+    background-image: url(../images/blink.png) !important;
+}
+
+.lookleft{
+    transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
+    background-position-x: -68px !important;
+    background-position-y: -56px !important;
+}
+
+.lookright{
+    transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
+    background-position-x: -46px !important;
+    background-position-y: -56px !important;
+}
+
+.lookdown{
+    transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
+    background-position-x: -57px !important;
+    background-position-y: -44px !important;
+}
+
+.lookup{
+    transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
+    background-position-x: -57px !important;
+    background-position-y: -62px !important;
+}
+
+#arrs{
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+#leftarr{
+    position: relative;
+    top: -80px;
+    left: -50px;
+    width: 29px;
+    animation-name: leftarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@keyframes leftarr{
+    50%{
+        left: -70px;
+    }
+}
+
+#rightarr{
+    position: relative;
+    top: -75px;
+    left: 50px;
+    animation-name: rightarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    width: 32px;
+}
+
+@keyframes rightarr{
+    50%{
+        left: 70px;
+    }
+}
+
+#uparr{
+    position: relative;
+    top: -158px;
+    left: 24px;
+    animation-name: uparr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    height: 28px;
+}
+
+@keyframes uparr{
+    50%{
+        top: -178px;
+    }
+}
+
+#downarr{
+    position: relative;
+    top: 30px;
+    left: -17px;
+    animation-name: downarr;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    height: 27px;
+}
+
+@keyframes downarr{
+    50%{
+        top: 50px;
+    }
+}
+
+#problem{
+    display:flex;
+    height: 107px;
+    width: 718px;
+    margin: 10px auto;
+}
+#problem>div{
+    display: grid;
+    margin-left:14px;
+    grid-template-areas:
+    "a b c d"
+    "e f g h"
+    "i j k l"
+    "m n o p"
+    "q r s t";
+    row-gap: 0;
+}
+#problem>div>div{
+    background: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 19px;
+    margin: 1px;
+    position: relative;
+    box-shadow: -3px 3px 0px 0px white;
+    transition: height 1s, width 1s;
+}
+#problem>.p{
+    margin-left:5px;
+}
+.p>#one{
+    grid-area: a;
+}
+.p>#two{
+    grid-area: e;
+}
+.p>#three{
+    grid-area: i;
+}
+.p>#four{
+    grid-area: m;
+}
+.p>#five{
+    grid-area: q;
+}
+.p>#eight{
+    grid-area: h;
+}
+.p>#nine{
+    grid-area: j;
+}
+.p>#ten{
+    grid-area: k;
+}
+
+.r>#one{
+    grid-area: a;
+}
+.r>#two{
+    grid-area: e;
+}
+.r>#three{
+    grid-area: i;
+}
+.r>#four{
+    grid-area: m;
+}
+.r>#five{
+    grid-area: q;
+}
+.r>#eight{
+    grid-area: h;
+}
+.r>#nine{
+    grid-area: j;
+}
+.r>#ten{
+    grid-area: k;
+}
+.r>#eleven{
+    grid-area: o;
+}
+.r>#twelve{
+    grid-area: t;
+}
+
+.o>#one{
+    grid-area: b;
+}
+.o>#two{
+    grid-area: e;
+}
+.o>#three{
+    grid-area: i;
+}
+.o>#four{
+    grid-area: m;
+}
+.o>#five{
+    grid-area: l;
+}
+.o>#six{
+    grid-area: p;
+}
+.o>#seven{
+    grid-area: r;
+}
+.o>#eight{
+    grid-area: h;
+}
+.o>#nine{
+    grid-area: c;
+}
+.o>#ten{
+    grid-area: s;
+}
+
+.b>#one{
+    grid-area: a;
+}
+.b>#two{
+    grid-area: e;
+}
+.b>#three{
+    grid-area: i;
+}
+.b>#four{
+    grid-area: m;
+}
+.b>#five{
+    grid-area: q;
+}
+.b>#eight{
+    grid-area: h;
+}
+.b>#nine{
+    grid-area: j;
+}
+.b>#ten{
+    grid-area: k;
+}
+.b>#eleven{
+    grid-area: p;
+}
+.b>#twelve{
+    grid-area: s;
+}
+.b>#thirteen{
+    grid-area: r;
+}
+
+#problem>.l #problem>.e{
+    grid-template-areas:
+    "a b c"
+    "e f g"
+    "i j k"
+    "m n o"
+    "q r s";
+}
+.l>#one{
+    grid-area: a;
+}
+.l>#two{
+    grid-area: e;
+}
+.l>#three{
+    grid-area: i;
+}
+.l>#four{
+    grid-area: m;
+}
+.l>#five{
+    grid-area: q;
+}
+.l>#six{
+    grid-area: r;
+}
+.l>#seven{
+    grid-area: s;
+}
+
+.e>#one{
+    grid-area: a;
+}
+.e>#two{
+    grid-area: e;
+}
+.e>#three{
+    grid-area: i;
+}
+.e>#four{
+    grid-area: m;
+}
+.e>#five{
+    grid-area: q;
+}
+.e>#eight{
+    grid-area: r;
+}
+.e>#nine{
+    grid-area: j;
+}
+.e>#ten{
+    grid-area: k;
+}
+.e>#eleven{
+    grid-area: s;
+}
+
+#problem>.m{
+    grid-template-areas:
+    "a b c d e"
+    "f g h i j"
+    "k l m n o"
+    "p q r s t"
+    "u v w x y";
+}
+
+.m>#one{
+    grid-area: a;
+}
+.m>#two{
+    grid-area: f;
+}
+.m>#three{
+    grid-area: k;
+}
+.m>#four{
+    grid-area: p;
+}
+.m>#five{
+    grid-area: u;
+}
+.m>#six{
+    grid-area: g;
+}
+.m>#seven{
+    grid-area: m;
+}
+.m>#eight{
+    grid-area: i;
+}
+.m>#nine{
+    grid-area: e;
+}
+.m>#ten{
+    grid-area: j;
+}
+.m>#eleven{
+    grid-area: o;
+}
+.m>#twelve{
+    grid-area: t;
+}
+.m>#thirteen{
+    grid-area: y;
+}
+
+.s>#one{
+    grid-area: b;
+}
+.s>#two{
+    grid-area: c;
+}
+.s>#three{
+    grid-area: d;
+}
+.s>#four{
+    grid-area: e;
+}
+.s>#five{
+    grid-area: j;
+}
+.s>#six{
+    grid-area: k;
+}
+.s>#seven{
+    grid-area: p;
+}
+.s>#eight{
+    grid-area: q;
+}
+.s>#nine{
+    grid-area: r;
+}
+.s>#ten{
+    grid-area: s;
+}
+
+h1{
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -50px;
+    color: white;
+    font-size: 30px;
+    font-weight: 100;
+    animation-name: dis;
+    animation-duration: 2s;
+    opacity: 0;
+    font-family: 'Bungee Hairline', cursive;
+}
+
+@keyframes dis{
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;
+    }
+}
+
+
+h6{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    margin-left: -40px;
+    top: 50%;
+    margin-top: 87px;
+    color: white;
+    font-size: 30px;
+    font-weight: 100;
+    animation-name: talk;
+    animation-duration: 2.5s;
+    opacity: 0;
+    font-family: 'Bungee Hairline', cursive;
+}
+
+@keyframes talk{
+    20%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+}
+
+#obstacles>div{
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+#obstacles>div>h2{
+    font-family: 'Bungee', cursive;
+    color: black;
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    margin: 0 auto;
+    padding: 1000px 0;
+}
+#levelnotice{
+    margin: 0 auto;
+}
+h3{
+    position: relative;
+    bottom: -80px;
+    font-size: 40px;
+    font-weight: 100;
+    font-family: 'Bungee Hairline', cursive;
+    transition: 1s ease-out;
+    opacity: 0;
+    animation-name: level;
+    animation-duration: 2s;
+}
+
+@keyframes level{
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;
+    }
+}
+
+h4{
+    position: relative;
+    bottom: 0px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Bungee Hairline', cursive;
+    transition: 1s ease-in;
+    
+}
+#gameover>h4{
+    opacity: 0;
+    animation-name: gameover;
+    animation-duration: 4s;
+}
+
+@keyframes gameover{
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+}
+
+#reset>a{
+    position: relative;
+    bottom: 250px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Bungee Hairline', cursive;
+    animation-name: showreset;
+    animation-duration: 5s;
+}
+
+@keyframes showreset{
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+}
+
+#home{
+    font-size: 50px !important;
+    position: absolute !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin-left: -40px !important;
+    top: 50% !important;
+    margin-top: 52px !important;
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    animation-name: home;
+    animation-duration: 2.5s;
+    opacity: 1;
+    font-family: 'Bungee Hairline', cursive !important;
+}
+
+@keyframes home{
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 1;
+    }
 }
