@@ -13,7 +13,8 @@ Though keyboard actions of ↑,	↓,	→,	←, players will relocate the ball to
 The main page (index.html) contains the graphic and game logic of the entire game. The "How To Play" page contains an animated tutorial outlining the rules of the game.
 
 ## Display
-### Default Display
+<p align="center">
+*Default Display*
 (index.html)
 
 ![](https://imgur.com/WsdLHZB.png)
@@ -39,7 +40,7 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 ![](https://imgur.com/0GIt9mz.png)
 
 <p align="center">
-Made with love,\n
+Made with love,<br>
 Charles Chen Cui :blush:
 </p>
 
