@@ -1,4 +1,4 @@
-# Game of Life Problems
+<h1 align="center">Game of Life Problems</h1>
 <img src="https://imgur.com/1MgsANj.png" alt="Logo" width="15"/> <span> Game by Charles Chen Cui </span>
 
 [PLAY THE GAME!](https://xarlze.github.io/gameoflifeproblems/ "Game of Life Problems")
@@ -13,8 +13,7 @@ Though keyboard actions of ↑,	↓,	→,	←, players will relocate the ball to
 The main page (index.html) contains the graphic and game logic of the entire game. The "How To Play" page contains an animated tutorial outlining the rules of the game.
 
 ## Display
-<p align="center">
-*Default Display*
+### Default Display
 (index.html)
 
 ![](https://imgur.com/WsdLHZB.png)
