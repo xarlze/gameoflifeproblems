@@ -2,6 +2,10 @@ let circusTheme = ["#D44343","#FFB400","#9068D4","#4BB1DF","#9ED450","#FF9980", 
 
 let letterDivs = document.querySelectorAll(".p>div, .r>div, .o>div, .b>div, .l>div, .e>div, .m>div, .s>div");
 
+let alive = true;
+
+let maxLevel = 10;
+
 const randColor = function(i){
     let colorInd = Math.floor(Math.random()*circusTheme.length);
     letterDivs[i].style.backgroundColor = circusTheme[colorInd];
@@ -19,15 +23,32 @@ for(let i = 0; i<letterDivs.length; i++){
 
 const character = document.querySelector("#char");
 
+setInterval(function(){
+    if(alive){
+    character.classList.toggle("blink");
+    setTimeout(() => {
+        character.classList.toggle("blink");
+        setTimeout(() => {
+            character.classList.toggle("blink");
+            setTimeout(() => {
+                character.classList.toggle("blink");
+            }, 100);
+        }, 100);
+    }, 100);
+}
+}, 3000);
+
+
+
 function moveChar (e){
     let currTop = parseInt(character.style.top.toString().replace("px", ""));
     let currLeft = parseInt(character.style.left.replace("px", ""));
     switch(e.keyCode){
          case 38:
-         if(character.getBoundingClientRect().y>160){
+         if(character.getBoundingClientRect().y>160 && alive){
             character.style.top = currTop - 70 + "px";
             character.className = "lookup";
-         } else {
+         } else if (alive){
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
@@ -37,10 +58,10 @@ function moveChar (e){
          }
          break;
          case 40:
-         if(character.getBoundingClientRect().y<(innerHeight-250)){
+         if(character.getBoundingClientRect().y<(innerHeight-250) && alive){
             character.style.top = currTop + 70 + "px";
             character.className = "lookdown";
-         } else {
+         } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
@@ -49,29 +70,27 @@ function moveChar (e){
          }
          break;
          case 37:
-         if(character.getBoundingClientRect().x>160){
+         if(character.getBoundingClientRect().x>160 && alive){
             character.style.left = currLeft - 70 + "px";
             character.className = "lookleft";
-         } else {
+         } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
-            character.className.replace(/none|lookdown|lookright|lookleft/gi, "lookup");
          }
          break;
          case 39:
-         if(character.getBoundingClientRect().x<(innerWidth-200)){
+         if(character.getBoundingClientRect().x<(innerWidth-200) && alive){
             character.style.left = currLeft + 70 + "px";
             character.className = "lookright";
-         } else {
+         } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
-            character.className.replace(/none|lookdown|lookright|lookleft/gi, "lookup");
          }
          break;
     }
@@ -86,7 +105,7 @@ function startGame(){
      setTimeout(function(){
          botNav.remove();},500);
      let topNav = document.querySelector("header");
-     topNav.style.top="65px";
+     topNav.style.top="68px";
      let arrows = document.querySelector("#arrs");
      arrows.style.opacity = "0";
  }
@@ -125,21 +144,22 @@ const createObstacle = function(text, size, time){
 }
 
 const gameOver = function(){
+    alive = false;
     let allObs = document.querySelector("#obstacles");
+    character.className = "dead";
     if(allObs){
         allObs.remove();
     }
     if(!document.querySelector("h4")){
         let over = document.createElement("h4");
         over.innerText = "GAME OVER, YOU DIED.";
-        if(!document.querySelector("#gameover>h4")){
+        if(!document.querySelector("#gameover>h4")&&!document.querySelector("#reset>a")){
             document.querySelector("#gameover").appendChild(over);
+            let reset = document.createElement("a");
+                reset.innerText = "Restart";
+                document.querySelector("#reset").appendChild(reset);
             setTimeout(function(){
                 over.remove();
-                let reset = document.createElement("a");
-                reset.innerText = "Restart";
-                reset.setAttribute
-                document.querySelector("#reset").appendChild(reset);
             },4000);
         }
         document.querySelector("#levelnotice").remove();
@@ -185,7 +205,7 @@ const levelNotice = function(level){
     notice.innerText = `Level ${level}`;
     if(document.querySelector("#levelnotice")){
         document.querySelector("#levelnotice").appendChild(notice);
-    }
+        }
     setTimeout(() => {
         notice.remove();
     }, 2000);
@@ -195,67 +215,67 @@ const beginObs = [
     {
         text: "MOM FORGOT YOUR MILK",
         size: 300,
-        time: 25
+        time: 35
     },
     {
         text: "DAD ",
         size: 100,
-        time: 20
-    },
-    {
-        text: "MOM",
-        size: 500,
-        time: 20
-    },
-    {
-        text: "MOM",
-        size: 70,
-        time: 24
-    },
-    {
-        text: "MOM",
-        size: 120,
         time: 30
     },
     {
         text: "MOM",
+        size: 500,
+        time: 30
+    },
+    {
+        text: "MOM",
+        size: 70,
+        time: 34
+    },
+    {
+        text: "MOM",
+        size: 120,
+        time: 40
+    },
+    {
+        text: "MOM",
         size: 600,
-        time: 16
+        time: 26
     },
     {
         text: "MOM",
         size: 100,
-        time: 10
+        time: 20
     },
     {
         text: "MOM",
         size: 25,
-        time: 12
+        time: 22
     },
     {
         text: "MOM",
         size: 50,
-        time: 15
-    },
-    {
-        text: "MOM",
-        size: 1000,
         time: 25
     },
     {
         text: "MOM",
+        size: 1000,
+        time: 35
+    },
+    {
+        text: "MOM",
         size: 200,
-        time: 16
+        time: 26
     },
     {
         text: "MOM",
         size: 500,
-        time: 15
+        time: 25
     },
     {
         text: "MOM",
         size: 600,
-        time: 8
+        time: 18
     }
 ];
 
@@ -268,17 +288,33 @@ document.addEventListener('keydown', function(e){
         startGame();
         let levelUpObs = beginObs;
         let allLev = [];
-        for(let i = 0; i<10; i++){
-            setTimeout(function(){
-                for(let c=0;c<levelUpObs.length;c++){
-                    levelUpObs[c].time = Math.round(levelUpObs[c].time*0.8);
+        for(let i = 0; i<=maxLevel; i++){
+            if(i<maxLevel){
+                setTimeout(function(){
+                    for(let c=0;c<levelUpObs.length;c++){
+                        levelUpObs[c].time = Math.round(levelUpObs[c].time*0.8);
+                    }
+                    allLev.push(levelUpObs);
+                    if(alive){
+                        levelNotice((i+1));
+                        level(allLev[i]);
+                    }
+                }, ((i*0.7)*33000+700));
+            }else if (i === maxLevel &&alive){
+                setTimeout(function(){
+                    if(alive){
+                        let win = document.createElement("h4");
+                        win.innerText = "YOU WON!";
+                        document.querySelector("#gameover").appendChild(win);
+                        let reset = document.createElement("a");
+                        setTimeout(function(){
+                            reset.innerText = "PLAY AGAIN";
+                            document.querySelector("#reset").appendChild(reset);
+                        },3000)}
+                    },((i*0.6)*33000+900)) 
                 }
-                allLev.push(levelUpObs);
-                console.log(allLev[i]);
-                levelNotice((i+1));
-                level(allLev[i]);
-            }, ((i*0.8)*24500+700));
+            }
         };
-}},{once : true});
+},{once : true});
 
 document.addEventListener('keydown', moveChar);

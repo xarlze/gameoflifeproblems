@@ -54,13 +54,29 @@ h2{
 a{
     text-decoration: none;
     color: white;
+    border-bottom: 4px solid transparent;
 }
+
+a:hover{
+    border-bottom: 4px !important;
+    border-bottom-style: dotted !important;
+    border-bottom-color: white !important;
+}
+
 #title{
     position:relative;
     margin-top: 0%;
     transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
     top:0px;
 }
+
+#titleother{
+    position:relative;
+    margin-top: 7.35%;
+    transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
+    top:0px;
+}
+
 #char{
     position: relative;
     margin: 160px auto 0 auto;
@@ -77,6 +93,30 @@ a{
     transition-timing-function: ease-in-out;
     box-shadow: -20px 20px 20px -10px rgba(255, 255, 255, 0.1);
 }
+
+#insch{
+    position: relative;
+    margin: 160px auto 0 auto;
+    width: 95px;
+    height: 95px;
+    background-image: url(../images/kid.png);
+    background-position-x: -57px;
+    background-position-y: -53px;
+    background-size: 220%;
+    border-radius: 50%;
+    transition: top 1.5s, left 1.4s;
+    transition-timing-function: ease-in-out;
+    box-shadow: -20px 20px 20px -10px rgba(255, 255, 255, 0.1);
+}
+
+.dead{
+    background-image: url(../images/dead.png) !important;
+}
+
+.blink{
+    background-image: url(../images/blink.png) !important;
+}
+
 .lookleft{
     transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
     background-position-x: -68px !important;
@@ -99,11 +139,6 @@ a{
     transition: top 0.2s, left 0.2s, background-position-y 0.3s ease-out, background-position-x 0.3s ease-out !important;
     background-position-x: -57px !important;
     background-position-y: -62px !important;
-}
-
-#eyes{
-    background-image: url(../images/kid.png);
-    background-position-x: 10px;
 }
 
 #arrs{
@@ -488,6 +523,32 @@ h1{
     }
 }
 
+
+h6{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    margin-left: -40px;
+    top: 50%;
+    margin-top: 87px;
+    color: white;
+    font-size: 30px;
+    font-weight: 100;
+    animation-name: talk;
+    animation-duration: 2.5s;
+    opacity: 0;
+    font-family: 'Bungee Hairline', cursive;
+}
+
+@keyframes talk{
+    20%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+}
+
 #obstacles>div{
     background: white;
     border-radius: 50%;
@@ -551,20 +612,47 @@ h4{
     }
 }
 
-
 #reset>a{
     position: relative;
-    bottom: 280px;
+    bottom: 250px;
     font-size: 40px;
     font-weight: 700;
     font-family: 'Bungee Hairline', cursive;
     animation-name: showreset;
-    animation-duration: 1s;
+    animation-duration: 5s;
 }
 
 @keyframes showreset{
     0%{
         opacity: 0;
     }
+    80%{
+        opacity: 0;
+    }
 }
 
+#home{
+    font-size: 50px !important;
+    position: absolute !important;
+    text-align: center !important;
+    left: 50% !important;
+    margin-left: -40px !important;
+    top: 50% !important;
+    margin-top: 52px !important;
+    color: white !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+    animation-name: home;
+    animation-duration: 2.5s;
+    opacity: 1;
+    font-family: 'Bungee Hairline', cursive !important;
+}
+
+@keyframes home{
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 1;
+    }
+}
