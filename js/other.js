@@ -109,5 +109,5 @@ window.addEventListener("load", function(){
             ob.style.left = "1000px";
             ob.style.top = "-1000px";
         },100);
-    },13600)
+    },13200)
 })

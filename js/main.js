@@ -180,6 +180,7 @@ function level (troubles){
     for(let i = 0; i<troubles.length; i++){
         let arr = createObstacle(troubles[i].text,troubles[i].size,troubles[i].time);
         let obstacleInMove = arr[0];
+        obstacleInMove.style.zIndex = "20 !important";
         let obstacleStartX = arr[1];
         let obstacleStartY = arr[2];
         let interval;
@@ -208,6 +209,33 @@ const levelNotice = function(level){
     setTimeout(() => {
         notice.remove();
     }, 2000);
+}
+
+const floodScreen = function(bool){
+    if(bool){
+        let allNav = document.querySelectorAll("nav, #title, #char, #arrs");
+        for(let n = 0; n<allNav.length;n++){
+            let currDis = allNav[n].style.display;
+            allNav[n].style.display = "none";
+            setTimeout(function(){
+                allNav[n].style.display = currDis;
+            }, 2300)
+        }
+    }
+    for(let i =0; i<15; i++){
+        let rand = createObstacle("", (Math.random()*500+600), (Math.random()*2+3)); 
+        let obstacleInMove = rand[0];
+        obstacleInMove.style.zIndex = 20;
+        let obstacleStartX = rand[1];
+        let obstacleStartY = rand[2];
+        setTimeout(() => {
+            obstacleInMove.style.left = innerWidth-obstacleStartX-800 +"px";
+            obstacleInMove.style.top = innerHeight-obstacleStartY +"px";
+        },100);
+        setTimeout(function(){
+            obstacleInMove.remove();
+        },(rand[3]*1000));
+    }
 }
 
 const beginObs = [
@@ -299,10 +327,11 @@ document.addEventListener('keydown', function(e){
                         levelNotice((i+1));
                         level(allLev[i]);
                     }
-                }, ((i*0.7)*33000+700));
+                }, ((i*0.65)*32000+2000));
             }else if (i === maxLevel &&alive){
                 setTimeout(function(){
                     if(alive){
+                        floodScreen(false);
                         let win = document.createElement("h4");
                         win.innerText = "YOU WON!";
                         document.querySelector("#gameover").appendChild(win);
@@ -311,10 +340,11 @@ document.addEventListener('keydown', function(e){
                             reset.innerText = "PLAY AGAIN";
                             document.querySelector("#reset").appendChild(reset);
                         },4000)}
-                    },((i*0.6)*28000+900)) 
+                    },((i*0.65)*32000+3800))
                 }
             }
         };
 },{once : true});
 
 document.addEventListener('keydown', moveChar);
+floodScreen(true);
