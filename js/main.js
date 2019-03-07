@@ -213,17 +213,17 @@ const levelNotice = function(level){
 const beginObs = [
     {
         text: "MOM FORGOT YOUR MILK",
-        size: 300,
+        size: 100,
         time: 35
     },
     {
         text: "DAD ",
-        size: 100,
+        size: 30,
         time: 30
     },
     {
         text: "MOM",
-        size: 500,
+        size: 40,
         time: 30
     },
     {
@@ -233,12 +233,12 @@ const beginObs = [
     },
     {
         text: "MOM",
-        size: 120,
+        size: 130,
         time: 40
     },
     {
         text: "MOM",
-        size: 600,
+        size: 20,
         time: 26
     },
     {
@@ -258,22 +258,22 @@ const beginObs = [
     },
     {
         text: "MOM",
-        size: 1000,
+        size: 160,
         time: 35
     },
     {
         text: "MOM",
-        size: 200,
+        size: 120,
         time: 26
     },
     {
         text: "MOM",
-        size: 500,
+        size: 140,
         time: 25
     },
     {
         text: "MOM",
-        size: 600,
+        size: 100,
         time: 18
     }
 ];
@@ -292,6 +292,7 @@ document.addEventListener('keydown', function(e){
                 setTimeout(function(){
                     for(let c=0;c<levelUpObs.length;c++){
                         levelUpObs[c].time = Math.round(levelUpObs[c].time*0.8);
+                        levelUpObs[c].size = Math.round(levelUpObs[c].size*1.3);
                     }
                     allLev.push(levelUpObs);
                     if(alive){
@@ -310,7 +311,7 @@ document.addEventListener('keydown', function(e){
                             reset.innerText = "PLAY AGAIN";
                             document.querySelector("#reset").appendChild(reset);
                         },4000)}
-                    },((i*0.6)*33000+900)) 
+                    },((i*0.6)*28000+900)) 
                 }
             }
         };
