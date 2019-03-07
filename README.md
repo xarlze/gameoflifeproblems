@@ -5,4 +5,11 @@
 Game of Life Problems consists of a character and obstacles that the player needs to avoid by manipulating the position of the character.
 
 ## Mechanism
-Though keyboard actions of Up] [Down] [Left] [Right] to relocate the ball to an object-free space. The player will go through stages “Infancy”, “Teenage”, “Adulthood”,  “Menopause”, and “Living on Social Security.” Each level will present different problems of different sizes and speed.
+Though keyboard actions of ↑,	↓,	→,	←, players will relocate the ball to an obstacle-free space. The game checks, every 100ms, if any obstacles' center distance to the character's center is smaller or equal to the sum of their radius. If so, a function will "kill" the character and declare the game as over.
+
+## Navigation
+The main page (index.html) contains the graphic and game logic of the entire game. The "How To Play" page contains an animated tutorial outlining the rules of the game.
+
+## Display
+### Default Display (index.html)
+![](https://imgur.com/WsdLHZB)
