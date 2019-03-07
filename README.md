@@ -1,2 +1,2 @@
-![](https://imgur.com/1MgsANj.png" =100x100)
+<img src="https://imgur.com/1MgsANj.png" alt="Logo" width="200"/>
 # Game of Life Problems
