@@ -530,7 +530,7 @@ h6{
     left: 50%;
     margin-left: -40px;
     top: 50%;
-    margin-top: 87px;
+    margin-top: 90px;
     color: white;
     font-size: 30px;
     font-weight: 100;
@@ -638,9 +638,9 @@ h4{
     left: 50% !important;
     margin-left: -40px !important;
     top: 50% !important;
-    margin-top: 52px !important;
+    margin-top: 90px !important;
     color: white !important;
-    font-size: 30px !important;
+    font-size: 40px !important;
     font-weight: 700 !important;
     animation-name: home;
     animation-duration: 2.5s;
