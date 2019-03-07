@@ -12,4 +12,4 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 
 ## Display
 ### Default Display (index.html)
-![](https://imgur.com/WsdLHZB)
+[![](https://imgur.com/WsdLHZB)]
