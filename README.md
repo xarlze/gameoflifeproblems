@@ -2,7 +2,7 @@
 <img src="https://imgur.com/1MgsANj.png" alt="Logo" width="15"/> <span> Game by Charles Chen Cui </span>
 
 [PLAY THE GAME!](https://xarlze.github.io/gameoflifeproblems/ "Game of Life Problems")
-
+  
 ## Summary
 Game of Life Problems consists of a character and obstacles that the player needs to avoid by manipulating the position of the character.
 
@@ -38,6 +38,8 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 
 ![](https://imgur.com/0GIt9mz.png)
 
+<p align="center">
 ### Made with love,
 #### Charles Chen Cui :blush:
+</p>
 
