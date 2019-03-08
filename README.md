@@ -1,4 +1,4 @@
-# Game of Life Problems
+![](https://imgur.com/rtQcE68)
 
 <img src="https://imgur.com/1MgsANj.png" alt="Logo" width="15"/> <span> A Game by Charles Chen Cui </span>
 
