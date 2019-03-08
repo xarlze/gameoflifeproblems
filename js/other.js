@@ -28,7 +28,7 @@ setInterval(function(){
             }, 100);
         }, 100);
     }, 100);
-}, 3000);
+}, 3044);
 
 const talk = function (words){
     let say = document.createElement("h6");
@@ -51,7 +51,7 @@ window.addEventListener("load", function(){
         setTimeout(function(){
             character.className = "lookright";
         }, 600)
-    }, 6000)
+    }, 8300)
 
     setTimeout(function(){
         talk("Herroooo");
