@@ -8,7 +8,7 @@
 Game of Life Problems consists of a character and obstacles that the player needs to avoid by manipulating the position of the character.
 
 ## Mechanism
-Though keyboard actions of ↑,	↓,	→,	←, players will relocate the ball to an obstacle-free space. The game checks, every 100ms, if any obstacles' center distance to the character's center is smaller or equal to the sum of their radius. If so, a function will "kill" the character and declare the game as over. The game is powered by HTML5, CSS3, and Javascript.
+Through the keyboard actions of ↑,	↓,	→,	←, players will relocate the ball to an obstacle-free space. The game checks, every 100ms, if any obstacles' center distance to the character's center is smaller or equal to the sum of their radius. If so, a function will "kill" the character and declare the game as over. The game is powered by HTML5, CSS3, and Javascript.
 
 ## Navigation
 The main page (index.html) contains the graphic and game logic of the entire game. The "How To Play" page contains an animated tutorial outlining the rules of the game.
