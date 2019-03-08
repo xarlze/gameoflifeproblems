@@ -38,7 +38,12 @@ setInterval(function(){
 }
 }, 3000);
 
-
+let move = new Audio('audio/move.mov');
+move.volume = 0.1;
+let die = new Audio('audio/die.m4a');
+die.volume = 0.005;
+let levelup = new Audio('audio/levelup.mov');
+levelup.volume = 0.005;
 
 function moveChar (e){
     let currTop = parseInt(character.style.top.toString().replace("px", ""));
@@ -48,19 +53,20 @@ function moveChar (e){
          if(character.getBoundingClientRect().y>160 && alive){
             character.style.top = currTop - 70 + "px";
             character.className = "lookup";
+            move.play();
          } else if (alive){
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
             document.body.appendChild(warning);
             setTimeout(function(){
                 warning.remove();},2000);
-            
          }
          break;
          case 40:
          if(character.getBoundingClientRect().y<(innerHeight-250) && alive){
             character.style.top = currTop + 70 + "px";
             character.className = "lookdown";
+            move.play();
          } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
@@ -73,6 +79,7 @@ function moveChar (e){
          if(character.getBoundingClientRect().x>160 && alive){
             character.style.left = currLeft - 70 + "px";
             character.className = "lookleft";
+            move.play();
          } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
@@ -85,6 +92,7 @@ function moveChar (e){
          if(character.getBoundingClientRect().x<(innerWidth-200) && alive){
             character.style.left = currLeft + 70 + "px";
             character.className = "lookright";
+            move.play();
          } else if (alive) {
             let warning = document.createElement("h1");
             warning.innerText = "Please stay within bounds!"
@@ -150,6 +158,7 @@ const gameOver = function(){
         allObs.remove();
     }
     if(!document.querySelector("h4")){
+        die.play();
         let over = document.createElement("h4");
         over.innerText = "GAME OVER, YOU DIED.";
         if(!document.querySelector("#gameover>h4")&&!document.querySelector("#reset>a")){
@@ -204,6 +213,7 @@ const levelNotice = function(level){
     let notice = document.createElement("h3");
     notice.innerText = `Level ${level}`;
     if(document.querySelector("#levelnotice")){
+        levelup.play();
         document.querySelector("#levelnotice").appendChild(notice);
         }
     setTimeout(() => {
