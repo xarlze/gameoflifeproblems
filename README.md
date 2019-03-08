@@ -1,6 +1,6 @@
-![](https://imgur.com/rtQcE68.png)
+# Game of Life Problems
 
-<img src="https://imgur.com/1MgsANj.png" alt="Logo" width="15"/> <span> A Game by Charles Chen Cui </span>
+<img src="https://imgur.com/1MgsANj.png" alt="Logo" width="18"/> <span> A Game by Charles Chen Cui </span>
 
 <a href= "https://xarlze.github.io/gameoflifeproblems/">PLAY THE GAME!</a>
   
