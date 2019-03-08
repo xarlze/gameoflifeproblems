@@ -1,4 +1,4 @@
-![](https://imgur.com/rtQcE68)
+![](https://imgur.com/rtQcE68.png)
 
 <img src="https://imgur.com/1MgsANj.png" alt="Logo" width="15"/> <span> A Game by Charles Chen Cui </span>
 
