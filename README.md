@@ -42,7 +42,7 @@ The main page (index.html) contains the graphic and game logic of the entire gam
 
 ![](https://imgur.com/0GIt9mz.png)
 
-## Credit
+## Additional Information
 Created as part of the General Assembly *Web Development Immersive* Program.
 
 <p align="center">
