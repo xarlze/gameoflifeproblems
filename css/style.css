@@ -238,7 +238,7 @@ a:hover{
     margin: 1px;
     position: relative;
     box-shadow: -3px 3px 0px 0px white;
-    transition: height 1s, width 1s;
+    transition: height 1s, width 1s, background 0.08s;
 }
 #problem>.p{
     margin-left:5px;
